@@ -1,0 +1,3 @@
+# Ignore artifacts:
+/.github
+package-lock.json
