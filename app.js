@@ -82,7 +82,6 @@ const taskIncomplete = function () {
   bindTaskEvents(listItem, taskCompleted);
 };
 
-addButton.onclick = addTask;
 addButton.addEventListener('click', addTask);
 
 const bindTaskEvents = function (taskListItem, checkBoxEventHandler) {
