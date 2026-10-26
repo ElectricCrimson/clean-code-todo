@@ -1,6 +1,6 @@
 const newTaskInput = document.getElementById('new-task');
 const addTaskButton = document.getElementsByTagName('button')[0];
-const incompleteTasksList = document.getElementById('incomplete-tasks');
+const incompleteTasksList = document.getElementById('active-tasks');
 const completedTasksList = document.getElementById('completed-tasks');
 
 const createDeleteButton = function () {
