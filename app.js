@@ -7,7 +7,7 @@ const createDeleteButton = function () {
   const deleteButton = document.createElement('button');
   const deleteButtonImg = document.createElement('img');
 
-  deleteButton.className = 'delete';
+  deleteButton.className = 'btn btn-delete';
   deleteButtonImg.src = './remove.svg';
   deleteButtonImg.alt = 'Remove Icon';
   deleteButton.appendChild(deleteButtonImg);
@@ -16,7 +16,7 @@ const createDeleteButton = function () {
 
 const createEditButton = function () {
   const editButton = document.createElement('button');
-  editButton.className = 'edit';
+  editButton.className = 'btn btn-edit';
   editButton.innerText = 'Edit';
   return editButton;
 };
@@ -26,6 +26,8 @@ const createNewTask = function (taskText) {
   const checkBox = document.createElement('input');
   const label = document.createElement('label');
   const editInput = document.createElement('input');
+
+  task.className = 'tasks-item';
 
   label.innerText = taskText;
   label.className = 'task';
@@ -52,7 +54,7 @@ const editTask = function () {
   const task = this.parentNode;
   const editInput = task.querySelector('input[type=text]');
   const label = task.querySelector('label');
-  const editButton = task.querySelector('.edit');
+  const editButton = task.querySelector('.btn-edit');
   const isEditMode = task.classList.contains('edit-mode');
 
   if (isEditMode) {
@@ -90,8 +92,8 @@ addTaskButton.addEventListener('click', addTask);
 
 const bindTaskEvents = function (currentTask, checkBoxHandler) {
   const checkBox = currentTask.querySelector('input[type=checkbox]');
-  const editButton = currentTask.querySelector('button.edit');
-  const deleteButton = currentTask.querySelector('button.delete');
+  const editButton = currentTask.querySelector('button.btn-edit');
+  const deleteButton = currentTask.querySelector('button.btn-delete');
 
   editButton.onclick = editTask;
   deleteButton.onclick = deleteTask;
