@@ -3,16 +3,29 @@ const addTaskButton = document.getElementsByTagName('button')[0];
 const incompleteTasksList = document.getElementById('incompleteTasks');
 const completedTasksList = document.getElementById('completed-tasks');
 
+const createDeleteButton = function () {
+  const deleteButton = document.createElement('button');
+  const deleteButtonImg = document.createElement('img');
+
+  deleteButton.className = 'delete';
+  deleteButtonImg.src = './remove.svg';
+  deleteButtonImg.alt = 'Remove Icon';
+  deleteButton.appendChild(deleteButtonImg);
+  return deleteButton;
+};
+
+const createEditButton = function () {
+  const editButton = document.createElement('button');
+  editButton.className = 'edit';
+  editButton.innerText = 'Edit';
+  return editButton;
+};
+
 const createNewTask = function (taskText) {
   const task = document.createElement('li');
-
   const checkBox = document.createElement('input');
   const label = document.createElement('label');
   const editInput = document.createElement('input');
-  const editButton = document.createElement('button');
-
-  const deleteButton = document.createElement('button');
-  const deleteButtonImg = document.createElement('img');
 
   label.innerText = taskText;
   label.className = 'task';
@@ -21,15 +34,7 @@ const createNewTask = function (taskText) {
   editInput.type = 'text';
   editInput.className = 'task';
 
-  editButton.innerText = 'Edit';
-  editButton.className = 'edit';
-
-  deleteButton.className = 'delete';
-  deleteButtonImg.src = './remove.svg';
-  deleteButtonImg.alt = 'Remove Icon';
-  deleteButton.appendChild(deleteButtonImg);
-
-  task.append(checkBox, label, editInput, editButton, deleteButton);
+  task.append(checkBox, label, editInput, createEditButton(), createDeleteButton());
   return task;
 };
 
@@ -45,7 +50,6 @@ const addTask = function () {
 
 const editTask = function () {
   const task = this.parentNode;
-
   const editInput = task.querySelector('input[type=text]');
   const label = task.querySelector('label');
   const editButton = task.querySelector('.edit');
